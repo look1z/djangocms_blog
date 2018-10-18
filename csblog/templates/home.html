@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+{% load cms_tags sekizai_tags %}
+{% load menu_tags %}
+<html lang="{{LANGUAGE_CODE}}">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="description" content="{% page_attribute 'meta_description' %}">
+
+    <title>{% block title %}{% page_attribute 'page_title' %} - {{request.site.name}}{% endblock %}
+    </title>
+    {% load staticfiles %}
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="{% static 'vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'vendor/googleapi/css/fonts_lora_css.css' %}" rel='stylesheet' type='text/css'>
+    <link href="{% static 'vendor/googleapi/css/fonts_opensans_css.css' %}" rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/clean-blog.min.css' %}" rel="stylesheet">
+    {% render_block "css" %}
+    {{ALDRYN_SNAME.render_head}}
+    <!-- django CMS toolbar adjustment -->
+    {% if request.toolbar %}
+    <style type="text/css">
+        #mainNav{
+            margin-top: 45px;
+        }
+    @media only screen and (min-width: 992px){
+        #mainNav .navbar-nav>li.child>a {
+            padding: 10px 20px;
+            color: #fff;
+        }
+    }
+    @media only screen and (min-width: 992px){
+        #mainNav .navbar-nav>li.child>a:focus, #mainNav .navbar-nav>li.child>a:hover {
+            color: rgba(255,255,255,.8);
+        }
+    }
+    #mainNav .navbar-nav>li.child>a {
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+    a {
+        text-decoration: none;
+        background-color: transparent;
+    }
+    a:link {text-decoration: none;}
+    a:visited {text-decoration: none;}
+    a:active {text-decoration: none;}
+    a:hover {text-decoration: none;}
+    </style>
+    {% endif %}
+  </head>
+
+  <body>
+  {% cms_toolbar %}
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-custom" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Start {{request.site.name}}</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            {% show_menu 0 1 100 100 %}
+            {% comment %}
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="post.html">Sample Post</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+            {% endcomment %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    {% block feature %}
+    {% placeholder feature or %}
+    <header class="masthead" style="background-image: url('{% static 'img/about-bg.jpg' %}')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="page-heading">
+              <h1>{% page_attribute 'page_title' %}</h1>
+              <span class="subheading">look1z's Blog</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    {% endplaceholder %}
+    {% endblock %}
+
+    <!-- Main Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          {% block content %}
+              {% placeholder content or %}
+                <p>This page has no content yet.</p>
+              {% endplaceholder%}
+          {% endblock content %}
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <p class="copyright text-muted">look1z &copy; www.look1z.cn 2018</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="{% static 'js/clean-blog.min.js' %}"></script>
+    {% render_block "js" %}
+    {{ALDRYN_SNAME.render_tail}}
+  </body>
+
+</html>
