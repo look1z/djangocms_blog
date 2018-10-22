@@ -114,7 +114,6 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'sekizai.context_processors.sekizai',
                 'cms.context_processors.cms_settings',
-                'aldryn_boilerplates.context_processors.boilerplate',
             ],
         },
     },
@@ -125,7 +124,6 @@ WSGI_APPLICATION = 'csblog.wsgi.application'
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
-    'aldryn_boilerplates.staticfile_finders.AppDirectoriesFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
@@ -179,5 +177,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'csblog', 'static'),
-    'C:\Users\yxzc\Desktop\cms\csblog\static',
+    #'C:\Users\yxzc\Desktop\cms\csblog\static',
 )
