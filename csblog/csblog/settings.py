@@ -57,11 +57,9 @@ INSTALLED_APPS = (
     'djangocms_style',
     'djangocms_text_ckeditor',
     #'djangocms_blog',
-    #'csblog.plugins',
     'aldryn_background_image',
     'aldryn_bootstrap3',
     'aldryn_apphooks_config',
-    'aldryn_boilerplates',
     'aldryn_categories',
     'aldryn_common',
     'aldryn_newsblog',
@@ -118,11 +116,6 @@ TEMPLATES = [
                 'cms.context_processors.cms_settings',
                 'aldryn_boilerplates.context_processors.boilerplate',
             ],
-            'loaders': [
-                'django.template.loaders.filesystem.Loader',
-                'aldryn_boilerplates.template_loaders.AppDirectoriesLoader',
-                'django.template.loaders.app_directories.Loader',
-            ],
         },
     },
 ]
@@ -163,7 +156,7 @@ LANGUAGE_CODE = 'en'
 
 LANGUAGES = [
     ('en', 'English'),
-    ('zh', 'Chinese'),
+    #('zh-Hans', 'Chinese'),
 ]
 
 TIME_ZONE = 'UTC'
