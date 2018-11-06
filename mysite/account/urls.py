@@ -7,6 +7,7 @@ urlpatterns = [
     #url(r'^login/$', views.user_login, name="user_login"),
     url(r'^login/$', auth_views.login, name="user_login"),
     url(r'^blog/', auth_views.logout, name="user_logout"),
+    url(r'^logout/$', auth_views.logout, {"template_name": "account/logout.html"}, name="user_logout"),
 ]
 
 
