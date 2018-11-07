@@ -1,16 +1,14 @@
 {% extends "base.html" %}
 
-{% block title %}password change{% endblock %}
+{% load staticfiles %}
+
+{% block title %}register user{% endblock %}
 
 {% block content %}
 <div class="row text-center vertical-middle-sm">
-    <h1>Password-Change</h1>
+    <h1>Register</h1>
     <p>If you are a user, <a href="{% url 'account:user_login' %}">Login</a>, please</p>
     <p>or register</p>
-    {% if form.new_password1.help_text %}
-    <div class="text-left" style="margin-left:400px">
-        <p>{{ form.new_password1.help_text |safe }}</p>
-    </div>
     <form class="form-horizontal" action="." method="post">{% csrf_token %}
         <div class="form-group">
             <label for="{{ form.username.id_for_label }}" class="col-md-5 control-label">Username</label>
@@ -39,5 +37,4 @@
         <input type="submit" value="REGISTER" class="btn btn-primary btn-lg">
     </form>
 </div>
-
 {% endblock %}
