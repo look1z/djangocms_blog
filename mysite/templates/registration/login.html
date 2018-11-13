@@ -20,5 +20,11 @@
         </div>
         <input type="submit" class="btn btn-primary btn-lg" value="Login">
     </form>
+    <p style="margin-top:10px">Forget your password?<a href="{% url 'account:password_reset' %}">
+        reset password
+    </a></p>
+    <p style="margin-top:10px">Not a user?<a href="{% url 'account:user_register' %}">
+        Register to be a user
+    </a></p>
 </div>
 {% endblock %}

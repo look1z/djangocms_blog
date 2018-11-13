@@ -130,3 +130,10 @@ STATICFILES_DIRS = (
 )
 
 LOGIN_REDIRECT_URL = '/blog/'
+
+EMAIL_HOST = 'smtp.qq.com'
+EMAIL_HOST_USER = 'look1z@qq.com'
+EMAIL_HOST_PASSWORD = ''
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'look1z@qq.com'
