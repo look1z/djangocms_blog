@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}User information{% endblock %}
+
+{% block content %}
+<div class="row text-center vertical-middle-sm">
+    <h1>User information</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-4 text-right"><span>用户名：</span></div>
+                <div class="col-md-8 text-left"><span>{{ user.username }}</span></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-right"><span>邮箱：</span></div>
+                <div class="col-md-8 text-left"><span>{{ user.email }}</span></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-right"><span>生日：</span></div>
+                <div class="col-md-8 text-left"><span>{{ userprofile.birth }}</span></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-right"><span>电话：</span></div>
+                <div class="col-md-8 text-left"><span>{{ userprofile.phone }}</span></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-right"><span>毕业学校：</span></div>
+                <div class="col-md-8 text-left"><span>{{ userinfo.school }}</span></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-right"><span>工作单位：</span></div>
+                <div class="col-md-8 text-left"><span>{{ userinfo.company }}</span></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-right"><span>职业：</span></div>
+                <div class="col-md-8 text-left"><span>{{ userinfo.profession }}</span></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-right"><span>地址：</span></div>
+                <div class="col-md-8 text-left"><span>{{ userinfo.address }}</span></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-right"><span>个人介绍：</span></div>
+                <div class="col-md-8 text-left"><span>{{ userinfo.aboutme }}</span></div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <p>picture</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
