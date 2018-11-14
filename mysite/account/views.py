@@ -59,6 +59,7 @@ def myself(request):
     userinfo = UserInfo.objects.get(user=user)
     return render(request, "account/myself.html", {"user": user, "userprofile": userprofile, "userinfo": userinfo})
 
+
 @login_required(login_url='/account/login/')
 def myself_edit(request):
     user = User.objects.get(username=request.user.username)
@@ -91,10 +92,10 @@ def myself_edit(request):
         userprofile_form = UserProfileForm(initial={"birth": userprofile.birth, "phone": userprofile.phone})
         userinfo_form = UserInfoForm(initial={
             "school": userinfo.school, "company": userinfo.company, "profession": userinfo.profession,
-            "aboutme":userinfo.aboutme, "address": userinfo.address
+            "aboutme": userinfo.aboutme, "address": userinfo.address
         })
-        return render(request, "account/myself_edit.html",{
-            "user_form": user_form, "userprofile_form":userprofile_form, "userinfo_form":userinfo_form
+        return render(request, "account/myself_edit.html", {
+            "user_form": user_form, "userprofile_form": userprofile_form, "userinfo_form": userinfo_form
         })
 
 

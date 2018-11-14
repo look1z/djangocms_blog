@@ -43,6 +43,7 @@
                 <div class="col-md-4 text-right"><span>个人介绍：</span></div>
                 <div class="col-md-8 text-left"><span>{{ userinfo.aboutme }}</span></div>
             </div>
+            <a href="{% url 'account:edit-my-information' %}"><button class="btn btn-primary btn-lg">编辑个人信息</button></a>
         </div>
         <div class="col-md-6">
             <p>picture</p>
